@@ -1,4 +1,4 @@
-import { DateTransformer } from './DateTransformer';
+import { DateTransformer } from './date-transform';
 import { PrimaryGeneratedColumn, Column } from "typeorm";
 
 export default abstract class CommonEntity {

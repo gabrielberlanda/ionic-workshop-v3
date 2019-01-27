@@ -1,9 +1,9 @@
+import { BrandService } from './brand.service';
 import { NgModule } from '@angular/core';
 
 @NgModule({
-  imports: [],
-  exports: [],
-  declarations: [],
-  providers: [],
+  providers: [
+    BrandService
+  ],
 })
 export class AppServicesModule { }

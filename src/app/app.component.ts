@@ -1,8 +1,9 @@
+import { BrandRepository } from './../repositories/brand.repository';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Connection, createConnection } from 'typeorm';
+import { Connection, createConnection, getCustomRepository } from 'typeorm';
 
 import entities from './../entities';
 import { HomePage } from '../pages/home/home';
@@ -13,7 +14,7 @@ import { HomePage } from '../pages/home/home';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any;
 
   pages: Array<{title: string, component: any}>;
 
@@ -54,6 +55,7 @@ export class MyApp {
         // Here you can do any higher level native things you might need.
         this.statusBar.styleDefault();
         this.splashScreen.hide();
+        this.rootPage = HomePage;
       }).catch(err => console.error('Ocorreu um erro ao criar a conexão com o banco de dados'));
     });
   }
@@ -61,6 +63,7 @@ export class MyApp {
   async configDatabase(): Promise<Connection> { 
     const platformConfig = this.platform.is('cordova') ? this.cordovaSettings : this.browserSettings;
     const connection: Connection = await createConnection({...this.defaultSettings, ...platformConfig});
+
     return connection;
   }
 

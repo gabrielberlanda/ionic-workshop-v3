@@ -1,9 +1,9 @@
+import { BrandRepository } from './brand.repository';
 import { NgModule } from '@angular/core';
 
 @NgModule({
-  imports: [],
-  exports: [],
-  declarations: [],
-  providers: [],
+  providers: [
+    BrandRepository
+  ],
 })
 export class AppRepositoriesModule { }
