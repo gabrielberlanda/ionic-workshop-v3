@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   
   <ion-list>
     <ion-item-sliding *ngFor="let brand of brands" #slidingitem>
@@ -19,9 +19,8 @@
         <button ion-button color="danger" (click)="deleteBrand(brand)">Excluir</button>
       </ion-item-options>
     </ion-item-sliding>
-    <ion-item *ngIf="!brands || !brands.length"><ion-icon color="danger" name="warning"></ion-icon>Você não possuí nenhuma marca cadastrada...</ion-item>
   </ion-list>
-
+  <div *ngIf="!brands || !brands.length"><ion-icon color="danger" name="warning" padding></ion-icon>Você não possuí nenhuma marca cadastrada...</div>
   <ion-fab right bottom>
     <button ion-fab color="secondary" (click)="createOrEditBrand()">
       <ion-icon name="add"></ion-icon>
