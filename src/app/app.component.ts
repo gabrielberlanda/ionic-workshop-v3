@@ -1,3 +1,4 @@
+import { BrandsPage } from './../pages/brands/brands.page';
 import { BrandRepository } from './../repositories/brand.repository';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
@@ -6,7 +7,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Connection, createConnection, getCustomRepository } from 'typeorm';
 
 import entities from './../entities';
-import { HomePage } from '../pages/home/home';
 
 @Component({
   templateUrl: 'app.html'
@@ -43,7 +43,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
+      { title: 'Marcas', component: BrandsPage }
     ];
 
   }
@@ -55,7 +55,7 @@ export class MyApp {
         // Here you can do any higher level native things you might need.
         this.statusBar.styleDefault();
         this.splashScreen.hide();
-        this.rootPage = HomePage;
+        this.rootPage = BrandsPage;
       }).catch(err => console.error('Ocorreu um erro ao criar a conexão com o banco de dados'));
     });
   }

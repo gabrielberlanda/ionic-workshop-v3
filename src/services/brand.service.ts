@@ -7,14 +7,15 @@ export class BrandService {
 
   constructor(private brandRepository: BrandRepository) {}
 
-  createAndSave(brandName: string): Promise<Brand> {
-    const brand = new Brand();
-    brand.name = brandName;
+  save(brand: Brand): Promise<Brand> {
     return this.brandRepository.save(brand);
   }
 
   listAll(): Promise<Brand[]> {
     return this.brandRepository.listAll();
   }
-  
+
+  delete(brandId: number): Promise<any> { 
+    return this.brandRepository.delete(brandId);
+  }
 }

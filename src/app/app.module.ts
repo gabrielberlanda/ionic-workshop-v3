@@ -1,3 +1,4 @@
+import { BrandsPage } from './../pages/brands/brands.page';
 import { AppRepositoriesModule } from './../repositories/app-repositories.module';
 import { AppServicesModule } from './../services/app-services.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -5,7 +6,6 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -13,7 +13,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    BrandsPage
   ],
   imports: [
     BrowserModule,
@@ -24,7 +24,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    BrandsPage
   ],
   providers: [
     StatusBar,

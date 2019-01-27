@@ -16,4 +16,8 @@ export class BrandRepository extends CommonRepository<Brand> {
   listAll(): Promise<Brand[]> {
     return this.repository.find();
   }
+
+  delete(id: number): Promise<any> {
+    return this.repository.delete(id);
+  }
 }
