@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cadastrar modelo</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="submit(form)">
+        Salvar
+      </button>
+    </ion-buttons>
+    
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form #form>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Nome do modelo</ion-label>
+        <ion-input type="text" [required]="true" [(ngModel)]="model.name" name="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Marca</ion-label>
+        <ion-select [(ngModel)]="model.brand" [required]="true" name="brand">
+          <ion-option *ngFor="let brand of availableBrands" [value]="brand">{{brand.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="model.photoURI">
+        <img [src]="domSanitizer.bypassSecurityTrustUrl(model.photoURI)"/>
+      </ion-item>
+      <ion-item>
+        <button ion-button full (click)="takePhoto()">Tirar foto do modelo</button>
+      </ion-item>
+    </ion-list>
+  </form>
+  
+</ion-content>

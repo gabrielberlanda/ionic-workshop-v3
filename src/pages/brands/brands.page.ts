@@ -31,6 +31,7 @@ export class BrandsPage {
       loading.dismiss();
     }).catch(err => {
       console.error('Erro ao carregar marcas', err);
+      loading.dismiss();
       this.toastCtrl.create({ message: 'Ocorreu um erro ao carregar as marcas...', duration: 3000 }).present();
     })
   }

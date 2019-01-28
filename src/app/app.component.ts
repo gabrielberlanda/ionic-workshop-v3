@@ -1,3 +1,4 @@
+import { ModelsPage } from './../pages/models/models.page';
 import { BrandsPage } from './../pages/brands/brands.page';
 import { BrandRepository } from './../repositories/brand.repository';
 import { Component, ViewChild } from '@angular/core';
@@ -43,7 +44,8 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Marcas', component: BrandsPage }
+      { title: 'Marcas', component: BrandsPage },
+      { title: 'Modelos', component: ModelsPage }
     ];
 
   }

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Modelos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-list>
+    <ion-item-sliding *ngFor="let model of models" #slidingitem>
+      <ion-item>
+        <ion-avatar item-start>
+          <img [src]="domSanitizer.bypassSecurityTrustUrl(model.photoURI)"/>
+        </ion-avatar>
+        {{ model.exibitionName }}
+      </ion-item>
+
+      <ion-item-options side='right'>
+        <!-- <button margin-right ion-button (click)="createOrEditBrand(brand)" color="primary">Editar</button> -->
+        <!-- <button ion-button color="danger" (click)="deleteBrand(brand)">Excluir</button> -->
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <div *ngIf="!models || !models.length"><ion-icon color="danger" name="warning" padding></ion-icon>Você não possuí nenhum modelo cadastrado...</div>
+  <ion-fab right bottom>
+    <button ion-fab color="secondary" (click)="createOrEditModel()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+  
+</ion-content>
